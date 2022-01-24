@@ -5,16 +5,14 @@ module.exports = {
     mode: 'production',
     entry: {
         //  Исходный файл трансляции кода es6,es7 и так далее.
-        app1: path.resolve(__dirname, 'src/js/canvas.js'),
-        app2: path.resolve(__dirname, 'src/js/utils.js')
+        canvas: path.resolve(__dirname, 'src/js/canvas.js'),
+        utils: path.resolve(__dirname, 'src/js/utils.js')
     },
     // Конечный файл трансляции кода в es5.
     output: {
         // Скомпилированный файл сохраняется в папку 'build'.
         path: path.resolve(__dirname, 'dist'),
-        filename: 'canvas.bundle.js',
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'utils.bundle.js'
+        filename: '[name].js',
     },
     // Модуль загрузки файлов трансляции.
     module: {
