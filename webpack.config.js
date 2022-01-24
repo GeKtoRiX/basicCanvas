@@ -5,13 +5,16 @@ module.exports = {
     mode: 'production',
     entry: {
         //  Исходный файл трансляции кода es6,es7 и так далее.
-        app: path.resolve(__dirname, 'src/app.js')
+        app1: path.resolve(__dirname, 'src/js/canvas.js'),
+        app2: path.resolve(__dirname, 'src/js/utils.js')
     },
     // Конечный файл трансляции кода в es5.
     output: {
         // Скомпилированный файл сохраняется в папку 'build'.
-        path: path.resolve(__dirname, 'build'),
-        filename: 'app.bundle.js'
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'canvas.bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'utils.bundle.js'
     },
     // Модуль загрузки файлов трансляции.
     module: {
@@ -30,5 +33,5 @@ module.exports = {
         }]
     },
     // Устранение ошибки can't get /
-    devServer: { static: { directory: path.join(__dirname, './')}}
+    devServer: { static: { directory: path.join(__dirname, './') } }
 }
