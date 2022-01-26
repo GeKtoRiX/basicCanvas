@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "",
-  "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --output-public-path=/build/"
+    "start": "webpack-dev-server"
   },
   "keywords": [],
   "author": "Cb@ndy",
@@ -35,6 +34,7 @@
     "@chriscourses/perlin-noise": "^1.0.5",
     "@popperjs/core": "^2.11.2",
     "clean-webpack-plugin": "^4.0.0",
-    "dat.gui": "^0.7.7"
+    "dat.gui": "^0.7.7",
+    "npm-check-updates": "^12.2.1"
   }
 }
