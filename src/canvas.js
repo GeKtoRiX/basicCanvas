@@ -16,13 +16,8 @@ var mouse = {
     y: htmlCanvas.height / 2,
 }
 
-addEventListener('mousemove', (params) => {
-    mouse.x = params.clientX;
-    mouse.y = params.clientY;
-})
-
 class Circle {
-    constructor(x, y, radius, color, offset) {
+    constructor(x, y, radius, color) {
         this.x = x;
         this.y = y;
         this.radius = radius;
@@ -32,7 +27,7 @@ class Circle {
 
     draw() {
         canvas.beginPath();
-        canvas.arc(this.x, this.y, this.radius, 0, Math.PI * 180, false);
+        canvas.arc(htmlCanvas.width / 2, htmlCanvas.height / 2, this.radius, 0, Math.PI * 180, false);
         canvas.fillStyle = this.color;
         canvas.fill();
         canvas.closePath();
