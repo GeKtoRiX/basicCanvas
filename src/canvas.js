@@ -10,13 +10,19 @@ addEventListener('resize', () => {
     htmlCanvas.width = window.innerWidth - 4;
     htmlCanvas.height = window.innerHeight - 4;
 })
-
+addEventListener('mousemove', (event) => {
+    mouse.x = event.clientX;
+    mouse.y = event.clientY;
+})
+const center = {
+    x: htmlCanvas.width / 2,
+    y: htmlCanvas.height / 2,
+}
 var mouse = {
     x: htmlCanvas.width / 2,
     y: htmlCanvas.height / 2,
 }
-
-class Circle {
+class Particle {
     constructor(x, y, radius, color) {
         this.x = x;
         this.y = y;
@@ -27,7 +33,7 @@ class Circle {
 
     draw() {
         canvas.beginPath();
-        canvas.arc(htmlCanvas.width / 2, htmlCanvas.height / 2, this.radius, 0, Math.PI * 180, false);
+        canvas.arc(center.x, center.y, this.radius, 0, Math.PI * 180, false);
         canvas.fillStyle = this.color;
         canvas.fill();
         canvas.closePath();
@@ -37,9 +43,22 @@ class Circle {
         this.draw();
     }
 }
-
+let particles;
+function init() {
+    particles = [];
+    const radius = 10;
+    for (let i = 0; i < 100; i++) {
+        particles.push(new Particle(center.x, center.y, radius, 'blue'));
+    }
+}
 function animate() {
+    canvas.fillStyle = 'rgba(0, 0, 0, 0.1)';
+    canvas.fillRect(0, 0, htmlCanvas.width, htmlCanvas.height);
+    particles.forEach(particle => {
+        particle.update();
+    });
     requestAnimationFrame(animate);
 }
-// animate();
+init();
+animate();
 
