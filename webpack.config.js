@@ -35,7 +35,7 @@ module.exports = {
         // Настройки трансляции.
         rules: [
             // Использование модулей для css и style элементов.
-            { test: /\.(sa|sc|c)ss$/, use: ['style-loader', 'css-loader'] },
+            { test: /\.(sa|sc|c)ss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
             // Использование встроенного загрузчика файлов.
             { test: /\.(svg|ico|png|webp|jpg|gif|jpeg)$/, type: 'asset/resource' },
             // Трансляция es5-6 в нативный код и исключение из проверки папку node_modules.
